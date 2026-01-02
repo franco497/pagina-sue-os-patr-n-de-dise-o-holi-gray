@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+div,
+body {
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+
+.header {
+  background-color: #48e;
+}
+
+.main-navbar ul {
+  display: flex;
+  padding: 0;
+}
+
+.main-navbar li {
+  list-style: none;
+  margin: 4px;
+}
+
+.main-navbar a {
+  color: #fff;
+  display: block;
+  padding: 6px 9px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+/* Main Content Styles */
+
+.main-wrapper {
+  display: flex;
+}
+
+aside, main {
+ border: #48e 2px solid;
+}
+
+.main-wrapper aside {
+  flex-grow: 1;
+}
+
+.secondary-navbar {
+  min-height: 200px;
+}
