@@ -1,11 +1,25 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-height: 100vh;
 }
 
 div,
-body {
+body,
+header,
+footer,
+nav,
+ul {
   box-sizing: border-box;
+}
+
+.main-wrapper,
+header,
+footer {
+  width: 100%;
 }
 
 /* Header Styles */
@@ -38,10 +52,13 @@ nav a {
 
 .main-wrapper {
   display: flex;
+  flex-grow: 1;
 }
 
-aside, main {
- border: #48e 2px solid;
+aside,
+main {
+  padding: 20px 10px;
+  border: #48e 2px solid;
 }
 
 .main-wrapper aside {
@@ -49,5 +66,46 @@ aside, main {
 }
 
 .secondary-navbar {
-  min-height: 200px;
+  min-width: 12rem;
+  text-align: center;
+}
+
+.secondary-navbar ul {
+  padding: 0;
+}
+
+.secondary-navbar li {
+  list-style: none;
+}
+
+.secondary-navbar a {
+  color: #48e;
+  display: inline-block;
+  padding: 6px 10px;
+}
+
+aside:last-child {
+  min-width: 10rem;
+}
+
+/* Footer Styles */
+
+footer {
+  margin-top: auto;
+  border: #48e 2px solid;
+  background-color: #333;
+  color: #fff;
+  padding: 40px;
+}
+
+@media screen and (max-width: 800px) {
+  aside:last-child {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .main-wrapper {
+    flex-direction: column;
+  }
 }
