@@ -140,3 +140,23 @@ footer {
     flex-direction: column;
   }
 }
+
+.citas {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem; /* 👈 recomendado */
+  line-height: 1.55;
+  color: #333;
+  letter-spacing: -0.01em; /* 👈 menos espacio entre letras */
+   font-style: italic;
+   text-indent: 1.2em;
+    margin-bottom: 1.5em; /* 👈 separación entre citas */
+}
+
+.citas .autor {
+  display: block;
+  text-indent: 0;
+  margin-top: 0.5em;
+  font-style: normal;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
