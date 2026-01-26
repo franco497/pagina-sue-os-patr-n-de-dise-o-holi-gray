@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center;  ❌ quitar esto */
   min-height: 100vh;
   justify-content: center;
   background-color: #ededed;
@@ -41,18 +41,24 @@ p {
   padding: 10px 0;
 }
 
+.main-navbar {
+  width: 100%;
+}
+
 /* Contenedor de navegación */
 .nav-container {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 15px;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 /* Botón hamburguesa */
 .hamburger-btn {
-  display: none; /* Oculto por defecto */
+  display: none;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -85,7 +91,6 @@ p {
   list-style: none;
   margin: 4px;
 }
-
 .main-navbar a {
   color: #fff;
   display: block;
@@ -109,6 +114,8 @@ a:hover {
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  max-width: 1024px;
+  margin: 0 auto; /* 👈 centra el bloque correctamente */
 }
 
 aside,
@@ -197,20 +204,23 @@ h1 {
 }
 
 @media screen and (max-width: 480px) {
-  .main-wrapper {
-    flex-direction: column;
+  .nav-container {
+    justify-content: space-between;
   }
-  
-  /* Mostrar botón hamburguesa en móvil */
+
   .hamburger-btn {
     display: flex;
   }
-  
+
+  .main-wrapper {
+    flex-direction: column;
+  }
+
   /* Ocultar menú por defecto en móvil */
   .main-navbar ul {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 60px;
     left: 0;
     width: 100%;
     background-color: rgb(1, 46, 114);
@@ -220,42 +230,41 @@ h1 {
     z-index: 1000;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Mostrar menú cuando tiene clase 'show' */
   .main-navbar ul.show {
     display: flex;
   }
-  
+
   /* Estilos para elementos del menú en móvil */
   .main-navbar li {
     margin: 0;
     width: 100%;
   }
-  
+
   .main-navbar a {
     padding: 12px 20px;
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
-  
+
   .main-navbar li:last-child a {
     border-bottom: none;
   }
-  
-  /* Animación para el botón hamburguesa cuando está activo */
+
+  /* Animación hamburguesa */
   .hamburger-btn.active .hamburger-line:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
   }
-  
+
   .hamburger-btn.active .hamburger-line:nth-child(2) {
     opacity: 0;
   }
-  
+
   .hamburger-btn.active .hamburger-line:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
   }
-  
-  /* Prevenir scroll cuando el menú está abierto */
+
   body.menu-open {
     overflow: hidden;
   }
