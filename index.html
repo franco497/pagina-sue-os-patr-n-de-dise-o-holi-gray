@@ -4,34 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Pagina sueños lucios con diseño de santo grial</title>
+    <title>Página sueños lúcidos con diseño de santo grial</title>
   </head>
   <body>
     <header class="header">
-      <nav class="main-navbar">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="/introduccion/introduccion.html">Introduccion</a></li>
-          <li>
-            <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
-          </li>
-          <li><a href="/tecnicas/consejos-tips.html">Tecnicas</a></li>
-          <li>
-            <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    <div class="main-wrapper">
-      <aside class="secondary-navbar">
-        <h2>Informacion</h2>
-        <nav>
-          <ul>
-            <li><a href="/introduccion/introduccion.html">Introduccion</a></li>
+      <div class="nav-container">
+        <button class="hamburger-btn" id="hamburger-btn">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <nav class="main-navbar">
+          <ul id="main-nav-list">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="/introduccion/introduccion.html">Introducción</a></li>
             <li>
               <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
             </li>
-            <li><a href="/tecnicas/consejos-tips.html">Tecnicas</a></li>
+            <li><a href="/tecnicas/consejos-tips.html">Técnicas</a></li>
+            <li>
+              <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <div class="main-wrapper">
+      <aside class="secondary-navbar">
+        <h2>Información</h2>
+        <nav>
+          <ul>
+            <li><a href="/introduccion/introduccion.html">Introducción</a></li>
+            <li>
+              <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
+            </li>
+            <li><a href="/tecnicas/consejos-tips.html">Técnicas</a></li>
             <li>
               <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
             </li>
@@ -62,7 +69,7 @@
           compasivo, sin importar que te hagan los demás a ti; lo que te hagan
           no va a importar mucho si miras todos como un sueño. El truco es tener
           una intención positiva durante el sueño. Este es el punto esencial,
-          esto es la verdadero espiritualidad"
+          esto es la verdadera espiritualidad"
           <span class="autor">- Chakdud Tulku Rinpoche</span>
         </p>
 
@@ -72,7 +79,7 @@
         </p>
 
         <p class="citas">
-          "Que el dormir sea en si mismo un ejercicio en la piedad, ya que tal
+          "Que el dormir sea en sí mismo un ejercicio en la piedad, ya que tal
           como lo son nuestra vida y conducta, por necesidad también lo son
           nuestros sueños."
           <span class="autor">- San Basilio </span>
@@ -85,10 +92,39 @@
         <a
           href="https://github.com/franco497/pagina-sue-os-patr-n-de-dise-o-holi-gray"
         >
-          Codigo en github
+          Código en github
         </a>
       </aside>
     </div>
     <footer>Derechos reservados © 2026</footer>
+    
+    <script>
+      // JavaScript para el menú hamburguesa
+      document.addEventListener('DOMContentLoaded', function() {
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navList = document.getElementById('main-nav-list');
+        
+        hamburgerBtn.addEventListener('click', function() {
+          // Alternar clase activa para el botón
+          this.classList.toggle('active');
+          
+          // Alternar visibilidad del menú
+          navList.classList.toggle('show');
+          
+          // Prevenir scroll cuando el menú está abierto
+          document.body.classList.toggle('menu-open');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('#main-nav-list a');
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            hamburgerBtn.classList.remove('active');
+            navList.classList.remove('show');
+            document.body.classList.remove('menu-open');
+          });
+        });
+      });
+    </script>
   </body>
 </html>
