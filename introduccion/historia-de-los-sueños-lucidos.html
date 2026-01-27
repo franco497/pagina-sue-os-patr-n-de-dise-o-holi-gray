@@ -8,19 +8,26 @@
   </head>
   <body>
     <header class="header">
-      <nav class="main-navbar">
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="introduccion.html">Introduccion</a></li>
-          <li>
-            <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
-          </li>
-          <li><a href="../tecnicas/consejos-tips.html">Tecnicas</a></li>
-          <li>
-            <a href="../actividades/volar-en-los-sueños.html">Actividades</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="nav-container">
+        <button class="hamburger-btn" id="hamburger-btn">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <nav class="main-navbar">
+          <ul id="main-nav-list">
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="introduccion.html">Introducción</a></li>
+            <li>
+              <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
+            </li>
+            <li><a href="/tecnicas/consejos-tips.html">Técnicas</a></li>
+            <li>
+              <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <div class="main-wrapper">
       <aside class="secondary-navbar">
@@ -118,5 +125,7 @@
       </aside>
     </div>
     <footer>Derechos reservados © 2026</footer>
+
+    <script src="../js/btn-desplegable-mobile.js"></script>
   </body>
 </html>
