@@ -1,20 +1,79 @@
+/* -----------------------------FONT SIZE CONTROL STYLES----------------------------- */
+.font-size-label {
+  font-size: 0.9em;
+  color: #333;
+  font-weight: 500;
+}
+
+.font-size-buttons {
+  display: flex;
+  gap: 0.5em;
+}
+
+.font-size-btn {
+  padding: 0.375em 0.75em;
+  border: 0.0625em solid rgb(1, 46, 114);
+  background-color: white;
+  color: rgb(1, 46, 114);
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: 0.85em;
+  transition: all 0.2s ease;
+}
+
+.font-size-btn:hover {
+  background-color: rgba(1, 46, 114, 0.1);
+}
+
+.font-size-btn.active {
+  background-color: rgb(1, 46, 114);
+  color: white;
+}
+
+body.font-large h1 {
+  font-size: 1.8em;
+}
+
+body.font-large h2 {
+  font-size: 1.5em;
+}
+
+body.font-large h3 {
+  font-size: 1.3em;
+}
+
+body.font-large p,
+body.font-large li,
+body.font-large .citas {
+  font-size: 1em;
+}
+
+body.font-large {
+  font-size: 1.125em;
+}
+
+/* Ajustes específicos para tablet */
+@media screen and (min-width: 541px) and (max-width: 1024px) {
+  body.font-large .main-wrapper,
+  body.font-large .header,
+  body.font-large footer {
+    font-size: inherit;
+  }
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  /* align-items: center;  ❌ quitar esto */
   min-height: 100vh;
-  justify-content: center;
   background-color: #ededed;
+  font-size: 1em; /* Base: 16px por defecto */
 }
 
-div,
-body,
-header,
-footer,
-nav,
-ul {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -35,34 +94,33 @@ p {
   text-wrap: pretty;
 }
 
-/* Header Styles */
+/* -----------------------------HEADER STYLES----------------------------- */
+
 .header {
   background-color: rgb(1, 46, 114);
-  padding: 10px 0;
+  padding: 0.625em 0;
 }
 
 .main-navbar {
   width: 100%;
 }
 
-/* Contenedor de navegación */
 .nav-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 0.9375em;
   max-width: 1024px;
   margin: 0 auto;
 }
 
-/* Botón hamburguesa */
 .hamburger-btn {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 21px;
+  width: 1.875em;
+  height: 1.3125em;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -73,13 +131,12 @@ p {
 .hamburger-line {
   display: block;
   width: 100%;
-  height: 3px;
+  height: 0.1875em;
   background-color: #fff;
-  border-radius: 2px;
+  border-radius: 0.125em;
   transition: all 0.3s ease;
 }
 
-/* Estilos del menú principal */
 .main-navbar ul {
   display: flex;
   padding: 0;
@@ -89,12 +146,13 @@ p {
 
 .main-navbar li {
   list-style: none;
-  margin: 4px;
+  margin: 0.25em;
 }
+
 .main-navbar a {
   color: #fff;
   display: block;
-  padding: 6px 9px;
+  padding: 0.375em 0.5625em;
   transition: opacity 0.3s ease;
 }
 
@@ -106,21 +164,101 @@ a:hover {
   opacity: 0.7;
 }
 
-/* Main Content Styles */
+/* Estilo para el enlace activo en el header */
+.main-navbar .active-main-link {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 0.25em;
+  font-weight: bold;
+}
+
+/* Mantener el hover original */
+.main-navbar a:hover {
+  opacity: 0.7;
+}
+
+/* Asegurar que el estilo activo prevalece */
+.main-navbar .active-main-link:hover {
+  opacity: 1;
+}
+
+/* -----------------------------HEADER QUERIES----------------------------- */
+
+@media screen and (max-width: 540px) {
+  .nav-container {
+    justify-content: space-between;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .main-navbar ul {
+    display: none;
+    position: fixed;
+    top: 3.75em;
+    left: 0;
+    width: 100%;
+    background-color: rgb(1, 46, 114);
+    flex-direction: column;
+    padding: 0.9375em 0;
+    margin: 0;
+    z-index: 1000;
+    box-shadow: 0 0.3125em 0.625em rgba(0, 0, 0, 0.2);
+  }
+
+  .main-navbar ul.show {
+    display: flex;
+  }
+
+  .main-navbar li {
+    margin: 0;
+    width: 100%;
+  }
+
+  .main-navbar a {
+    padding: 0.75em 1.25em;
+    text-align: center;
+    border-bottom: 0.0625em solid rgba(255, 255, 255, 0.1);
+  }
+
+  .main-navbar li:last-child a {
+    border-bottom: none;
+  }
+
+  .hamburger-btn.active .hamburger-line:nth-child(1) {
+    transform: translateY(0.5625em) rotate(45deg);
+  }
+
+  .hamburger-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-btn.active .hamburger-line:nth-child(3) {
+    transform: translateY(-0.5625em) rotate(-45deg);
+  }
+
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* -----------------------------HEADER ENDS----------------------------- */
+
+/* -----------------------------ASIDE MAIN ASIDE----------------------------- */
 
 .main-wrapper {
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 0.625em;
   max-width: 1024px;
-  margin: 0 auto; /* 👈 centra el bloque correctamente */
+  margin: 0 auto;
 }
 
 aside,
 main {
-  padding: 20px 10px;
+  padding: 1.25em 0.625em;
   flex-basis: 0;
   background-color: #fff;
 }
@@ -150,27 +288,51 @@ main {
 .secondary-navbar a {
   color: rgb(1, 46, 114);
   display: inline-block;
-  padding: 6px 10px;
+  padding: 0.375em 0.625em;
 }
 
 aside:last-child {
   min-width: 10rem;
 }
 
-/* Footer Styles */
+.collapsible-aside {
+  position: relative;
+  transition: all 0.3s ease;
+}
 
-footer {
-  margin-top: auto;
-  background-color: #333;
-  color: #fff;
-  padding: 40px;
-  font-weight: bold;
-  text-align: center;
+.collapse-btn {
+  display: none;
+  position: absolute;
+  top: 0.625em;
+  right: 0.625em;
+  background: rgb(1, 46, 114);
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  padding: 0.3125em 0.5em;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.collapse-btn:hover {
+  background: rgb(1, 70, 150);
+  transform: scale(1.05);
+}
+
+.collapse-icon {
+  width: 1.25em;
+  height: 1.25em;
+  stroke: white;
+  transition: transform 0.3s ease;
+}
+
+.collapsible-aside.collapsed .collapse-icon {
+  transform: rotate(180deg);
 }
 
 .citas {
   font-family: "Courier New", Courier, monospace;
-  font-size: 0.9rem;
+  font-size: 0.9em;
   line-height: 1.55;
   color: #333;
   letter-spacing: -0.01em;
@@ -184,18 +346,106 @@ footer {
   text-indent: 0;
   margin-top: 0.5em;
   font-style: normal;
-  font-size: 0.85rem;
+  font-size: 0.85em;
   opacity: 0.8;
 }
 
 h1 {
-  font-size: 1.5rem;
-  border-bottom: 3px solid rgb(1, 46, 114);
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  font-size: 1.5em;
+  border-bottom: 0.1875em solid rgb(1, 46, 114);
+  padding-bottom: 0.625em;
+  margin-bottom: 1.25em;
 }
 
-/* MEDIA QUERIES */
+/* Contenedor de controles de fuente */
+.font-controls {
+  display: none;
+  margin-top: 1.25em;
+  gap: 0.625em;
+  justify-content: center;
+}
+
+/* Botones de control de fuente */
+.font-controls button {
+  background-color: rgb(1, 46, 114);
+  color: white;
+  border: none;
+  padding: 0.375em 0.625em;
+  border-radius: 0.25em;
+  cursor: pointer;
+  font-size: 0.875em;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.font-controls button:hover {
+  background-color: rgb(1, 70, 150);
+  transform: scale(1.1);
+}
+
+/* -----------------------------ASIDE MAIN ASIDE QUERIES----------------------------- */
+
+@media (max-width: 540px) {
+  .main-wrapper {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+
+  aside,
+  main {
+    min-width: 100%;
+    width: 100%;
+    flex: none;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 800px) {
+  .collapse-btn {
+    display: block;
+  }
+
+  .collapsible-aside {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    min-width: 180px;
+    width: auto;
+  }
+
+  .collapsible-aside.collapsed {
+    min-width: 2.5em;
+    max-width: 2.5em;
+    flex: 0 0 2.5em;
+    width: 2.5em;
+    padding: 0;
+    overflow: visible;
+    background-color: transparent;
+    border-right: 0.0625em solid #ccc;
+  }
+
+  .collapsible-aside.collapsed .aside-content {
+    display: none;
+  }
+
+  .main-wrapper {
+    gap: 0;
+  }
+
+  .collapse-btn {
+    display: block;
+  }
+
+  .collapsible-aside.collapsed .collapse-btn {
+    position: absolute;
+    left: 0;
+    top: 0.625em;
+  }
+
+  .font-controls {
+    display: flex;
+  }
+}
 
 @media screen and (max-width: 800px) {
   aside:last-child {
@@ -203,69 +453,147 @@ h1 {
   }
 }
 
-@media screen and (max-width: 480px) {
-  .nav-container {
-    justify-content: space-between;
+/* -----------------------------ASIDE MAIN ASIDE ENDS----------------------------- */
+
+/* -----------------------------FOOTER STYLES----------------------------- */
+
+footer {
+  background-color: #333;
+  color: #fffd;
+  padding: 0;
+  text-align: center;
+  font-size: 0.9em;
+  position: relative;
+  margin-top: 0;
+}
+
+.footer-container {
+  position: relative;
+  width: 100%;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5em;
+  padding: 2em 1.5em;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-name {
+  font-size: 1.375em;
+  list-style: none;
+  font-weight: 600;
+  color: #fffd;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+  margin: 0 0 0.5em 0;
+}
+
+.footer-avatar {
+  width: 5em;
+  height: 5em;
+  border-radius: 9999px;
+  object-fit: cover;
+  margin: 1em auto;
+  display: block;
+}
+
+.footer-section {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+}
+
+.footer-section p {
+  font-size: 1.125em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contact-label {
+  font-size: 1em;
+  margin: 1em 0 0.5em 0 !important;
+  font-weight: normal;
+}
+
+.contact-email {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125em;
+  word-break: break-all;
+  margin: 0.5em auto;
+  text-align: center;
+}
+
+.footer-link {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  margin: 1em 0;
+}
+
+.footer-link a {
+  color: #fffd;
+  text-decoration: none;
+  transition: all 0.15s ease-in-out;
+  font-size: 1.125em;
+}
+
+.footer-link a:hover {
+  color: #fffd;
+  transform: scale(1.5);
+  display: inline-block;
+}
+
+.footer-icon {
+  width: 1.25em;
+  height: 1.25em;
+  stroke: currentColor;
+}
+
+.footer-copyright {
+  text-align: center;
+  padding: 1.5em 0 2em 0;
+  font-size: 1.125em;
+  border-top: 0.0625em solid rgba(255, 255, 255, 0.1);
+  margin-top: 1em;
+}
+
+/* -----------------------------FOOTER QUERIES----------------------------- */
+
+@media (min-width: 769px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3em;
+    padding: 3em;
   }
 
-  .hamburger-btn {
-    display: flex;
-  }
-
-  .main-wrapper {
-    flex-direction: column;
-  }
-
-  /* Ocultar menú por defecto en móvil */
-  .main-navbar ul {
-    display: none;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background-color: rgb(1, 46, 114);
-    flex-direction: column;
-    padding: 15px 0;
-    margin: 0;
-    z-index: 1000;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  /* Mostrar menú cuando tiene clase 'show' */
-  .main-navbar ul.show {
-    display: flex;
-  }
-
-  /* Estilos para elementos del menú en móvil */
-  .main-navbar li {
-    margin: 0;
-    width: 100%;
-  }
-
-  .main-navbar a {
-    padding: 12px 20px;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .main-navbar li:last-child a {
-    border-bottom: none;
-  }
-
-  /* Animación hamburguesa */
-  .hamburger-btn.active .hamburger-line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .hamburger-btn.active .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger-btn.active .hamburger-line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  body.menu-open {
-    overflow: hidden;
+  .footer-section {
+    max-width: none;
   }
 }
+
+@media (min-width: 1025px) {
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4em 2em;
+  }
+}
+
+/* -----------------------------FOOTER ENDS----------------------------- */

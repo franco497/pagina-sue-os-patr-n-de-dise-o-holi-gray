@@ -31,20 +31,43 @@
       </div>
     </header>
     <div class="main-wrapper">
-      <aside class="secondary-navbar">
-        <h2>Información</h2>
-        <nav>
-          <ul>
-            <li><a href="/introduccion/introduccion.html">Introducción</a></li>
-            <li>
-              <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
-            </li>
-            <li><a href="/tecnicas/consejos-tips.html">Técnicas</a></li>
-            <li>
-              <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
-            </li>
-          </ul>
-        </nav>
+      <aside class="secondary-navbar collapsible-aside">
+        <button
+          class="collapse-btn"
+          id="collapse-left-btn"
+          aria-label="Colapsar menú"
+        >
+          <svg
+            class="collapse-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <div class="aside-content">
+          <h2>Información</h2>
+          <nav>
+            <ul>
+              <li>
+                <a href="/introduccion/introduccion.html">Introducción</a>
+              </li>
+              <li>
+                <a href="/primeros pasos/primeros-pasos.html">Primeros pasos</a>
+              </li>
+              <li><a href="/tecnicas/consejos-tips.html">Técnicas</a></li>
+              <li>
+                <a href="/actividades/volar-en-los-sueños.html">Actividades</a>
+              </li>
+            </ul>
+          </nav>
+          <div class="font-controls">
+            <button data-size="medium">A</button>
+            <button data-size="large">A+</button>
+          </div>
+        </div>
       </aside>
       <main>
         <h1>Ahora mismo,¿Estás soñando?</h1>
@@ -86,19 +109,95 @@
           <span class="autor">- San Basilio </span>
         </p>
       </main>
-      <aside>
-        <h2>Mis datos personales</h2>
-        <p>Nombre: Franco De Vincentis<br /></p>
-        <p>Correo electrónico: devincentisf35@gmail.com<br /></p>
-        <a
-          href="https://github.com/franco497/pagina-sue-os-patr-n-de-dise-o-holi-gray"
-        >
-          Código en github
-        </a>
-      </aside>
+      <aside></aside>
     </div>
-    <footer>Derechos reservados © 2026</footer>
+    <!--     <footer>Derechos reservados © 2026</footer> -->
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <!-- Sección Franco De Vincentis -->
+          <div class="footer-section">
+            <h3 class="footer-name">Franco De Vincentis</h3>
+            <img
+              class="footer-avatar"
+              src="footer/foto-cv-Franco-De-Vincentis.jfif"
+              alt="Franco De Vincentis"
+            />
+            <div class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48c-1.37-.38-2.8-.38-4.17 0-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 8 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 12 18.13V22"
+                />
+              </svg>
+              <a
+                href="https://github.com/franco497"
+                target="_blank"
+                rel="noreferrer"
+                >Git hub</a
+              >
+            </div>
+            <div class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <a
+                href="https://www.linkedin.com/in/franco-de-vincentis/"
+                target="_blank"
+                rel="noreferrer"
+                >LinkedIn</a
+              >
+            </div>
+          </div>
+
+          <!-- Sección Contacto -->
+          <div class="footer-section">
+            <h3 class="footer-name">Contacto</h3>
+            <p class="contact-label">Correo electrónico:</p>
+            <div class="contact-email">devincentisf35@gmail.com</div>
+            <div class="footer-link">
+              <svg
+                class="footer-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48c-1.37-.38-2.8-.38-4.17 0-2.73-1.83-3.91-1.48-3.91-1.48A5.07 5.07 0 0 0 8 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 12 18.13V22"
+                />
+              </svg>
+              <a
+                href="https://github.com/franco497/pagina-sue-os-patr-n-de-dise-o-holi-gray"
+                target="_blank"
+                rel="noreferrer"
+                >Codigo</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright">Copyright © 2026</div>
+      </div>
+    </footer>
 
     <script src="js/btn-desplegable-mobile.js"></script>
+    <script src="js/btn-colapsar-barra.js"></script>
+    <script src="js/btn-control-font-zise.js"></script>
   </body>
 </html>
