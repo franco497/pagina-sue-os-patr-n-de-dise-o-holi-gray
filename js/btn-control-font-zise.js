@@ -3,50 +3,44 @@ function isTablet() {
   return window.innerWidth >= 541 && window.innerWidth <= 800;
 }
 
-const fontButtons = document.querySelectorAll(".font-controls button");
+const fontOptions = document.querySelectorAll(
+  '.font-controls input[type="radio"]',
+);
 
 // cargar tamaño guardado
 function loadFontSize() {
   const savedSize = localStorage.getItem("fontSize");
 
-  // limpiar clases
   document.body.classList.remove("font-medium", "font-large");
 
-  // limpiar botones activos
-  fontButtons.forEach((b) => b.classList.remove("active"));
-
-  // SOLO aplicar en tablet
   if (isTablet()) {
-    if (savedSize === "font-large") {
-      document.body.classList.add("font-large");
-      document.querySelector('[data-size="large"]')?.classList.add("active");
-    } else {
-      document.body.classList.add("font-medium");
-      document.querySelector('[data-size="medium"]')?.classList.add("active");
-    }
+    const size = savedSize === "font-large" ? "large" : "medium";
+
+    document.body.classList.add(`font-${size}`);
+
+    const selected = document.querySelector(
+      `.font-controls input[value="${size}"]`,
+    );
+
+    if (selected) selected.checked = true;
   }
 }
 
-// evento botones
-fontButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
+// evento radios
+fontOptions.forEach((option) => {
+  option.addEventListener("change", () => {
     if (!isTablet()) return;
 
-    fontButtons.forEach((b) => b.classList.remove("active"));
-    btn.classList.add("active");
-
-    const size = btn.dataset.size;
+    const size = option.value;
 
     document.body.classList.remove("font-medium", "font-large");
+    document.body.classList.add(`font-${size}`);
 
-    const className = `font-${size}`;
-    document.body.classList.add(className);
-
-    localStorage.setItem("fontSize", className);
+    localStorage.setItem("fontSize", `font-${size}`);
   });
 });
 
-// optimización resize (evita múltiples ejecuciones)
+// resize optimizado
 let resizeTimeout;
 
 window.addEventListener("resize", () => {
@@ -54,5 +48,5 @@ window.addEventListener("resize", () => {
   resizeTimeout = setTimeout(loadFontSize, 150);
 });
 
-// inicializar
+// iniciar
 loadFontSize();
